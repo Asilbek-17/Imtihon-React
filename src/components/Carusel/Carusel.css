@@ -1,0 +1,84 @@
+.carusel-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 346px;
+    background: linear-gradient(89.16deg, #263A3D 70.78%, rgba(25, 25, 25, 0) 105.05%);
+}
+
+.slick-slider {
+    width: 1240px !important;
+    height: 346px;
+    margin: 0 auto !important;
+    border-radius: 21px;
+    overflow: hidden;
+}
+
+.carusel-img1 {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 346px;
+    background-image: url('../../assets/images/Group57.png');
+}
+
+.carusel-img2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    height: 346px;
+    background-image: url('../../assets/images/Mask-Group.png');
+}
+
+.slick-arrow {
+    display: none !important;
+}
+
+.carusel-title {
+    position: absolute;
+    z-index: 50;
+    left: 86px;
+    width: 337px;
+    font-family: 'Bitter';
+    font-weight: 100;
+    font-size: 61px;
+    line-height: 67px;
+    color: #D1B89D;
+    
+}
+
+.slick-dots {
+    position: absolute;
+    left: 40px;
+    top: 260px;
+    width: 350px;
+    height: 30px;
+}
+
+.slick-dots li {
+    width: 57.39px;
+}
+
+.slick-dots li button::before {
+    width: 57.39px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    color: transparent;
+}
+
+.slick-dots .slick-active button::before {
+    width: 57.39px;
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+    color: transparent;
+}
+
+.slick-dots li.slick-active button:before {
+    color: transparent;
+}
