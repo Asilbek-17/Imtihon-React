@@ -26,7 +26,7 @@ export default class SimpleSlider extends Component {
             },
             {
                 title: 'Jadid davri adabiyoti',
-                img: 'https://static.zarnews.uz/crop/3/9/720__80_393a0414495fbaa3ad1f52fb97d5ad4a.jpg?img=self&v=1657176971'
+                img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fkh-davron.uz%2Fyangiliklar%2Fmuborak-kin%2Fozod-sharafiddinov-songgi-jadid-qissasi.html&psig=AOvVaw13U8Ya5c8YF5_TYIn2flMy&ust=1674653265268000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKiyqJXx3_wCFQAAAAAdAAAAABAE'
             },
             {
                 title: 'Sovet davri adabiyoti',
@@ -37,6 +37,7 @@ export default class SimpleSlider extends Component {
                 img: 'https://static.zarnews.uz/crop/3/9/720__80_393a0414495fbaa3ad1f52fb97d5ad4a.jpg?img=self&v=1657176971'
             }
         ]
+        let i = 2
         return (
             <Container>
                 <div>
@@ -46,7 +47,7 @@ export default class SimpleSlider extends Component {
                                 <div key={item.title} className='carusel-div'>
                                     <h2 className='carusel-title'>{item.title}</h2>
                                     <div className="carusel-img1"></div>
-                                    <div className="carusel-img2"></div>
+                                    <div className={'carusel-img2' + i++ }></div>
                                 </div>
                             )
                         })}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from '../../globalStyle'
-import { AuthorItem, AuthorItemText, AuthorItemTitle, AuthorList, BtnBox, CategoryBtn, HomeBox, HomeTitle, Img } from './Home.style'
+import { AuthorItem, AuthorItemText, AuthorItemTitle, AuthorList, BtnBox, CategoryBtn, HomeBox, HomeTitle, Img, LinkStyled } from './Home.style'
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { userSuccess } from '../../components/Redux/Author/AuthorActions';
@@ -9,6 +9,7 @@ import { Search } from '../../components/Search/Search';
 import { Link } from 'react-router-dom';
 import { LanguageContext } from '../../Context/languageContext';
 import { lang } from '../../lang/lang';
+import { AuthContext } from '../../Context/authContext';
 
 
 export const Home = () => {
@@ -19,11 +20,12 @@ export const Home = () => {
 
   function categorySort(evt) {
     if (evt.target.matches('button')) {
-      axios.get(`http://localhost:5001/author/genreId/${evt.target.value}`).then(data => {
+      axios.get(`http://localhost:5001/author/genreId/${evt.target.value || 1}`).then(data => {
         dispatch(userSuccess(data.data))
       }).catch(err => console.log(err))
     }
   }
+  const { id, setId } = React.useContext(AuthContext);
   return (
     <Container>
       <SimpleSlider />
@@ -36,7 +38,7 @@ export const Home = () => {
           <CategoryBtn value={`3`} onClick={(evt) => setBtn(evt.target.value)}>Sovet davri </CategoryBtn>
           <CategoryBtn value={`4`} onClick={(evt) => setBtn(evt.target.value)}>Mustaqillik davri</CategoryBtn>
         </BtnBox>
-        <AuthorList>
+        <AuthorList onClick={(evt) => setId(evt.target.value)}>
           {
             (
               () => {
@@ -44,25 +46,29 @@ export const Home = () => {
                   return (
                     authors?.author?.authors.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Home/Main-Author'}><Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
-                          <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Home/Main-Author'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
+                            <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
+
                       )
                     })
                   )
-
                 }
                 if (btn === '2') {
                   return (
                     authors?.author?.authors.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Home/Main-Author'}><Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
-                          <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Home/Main-Author'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
+                            <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )
@@ -71,11 +77,13 @@ export const Home = () => {
                   return (
                     authors?.author?.authors.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Home/Main-Author'}><Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
-                          <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Home/Main-Author'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
+                            <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )
@@ -84,11 +92,13 @@ export const Home = () => {
                   return (
                     authors?.author?.authors.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Home/Main-Author'}><Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
-                          <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Home/Main-Author'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={295} height={224} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.first_name + " " + item.last_name}</AuthorItemTitle>
+                            <AuthorItemText>{item.date_of_birth + "-" + item.date_of_death}</AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )

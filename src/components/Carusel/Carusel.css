@@ -25,13 +25,43 @@
     background-image: url('../../assets/images/Group57.png');
 }
 
-.carusel-img2 {
+.carusel-img22 {
     position: absolute;
     top: 0;
     right: 0;
     width: 380px;
     height: 346px;
     background-image: url('../../assets/images/Mask-Group.png');
+}
+
+.carusel-img23 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    height: 346px;
+    background-image: url('../../assets/images/jadid.jpeg');
+}
+
+.carusel-img24 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    height: 346px;
+    background-image: url('../../assets/images/sovet.jpeg');
+}
+
+.carusel-img25 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    height: 346px;
+    background-image: url('../../assets/images/mustaqillik.jpeg');
+    background-size: 380px 346px;
+    background-position: center left;
+    background-repeat: no-repeat;
 }
 
 .slick-arrow {

@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './assets/styles/main.css'
 import store from './components/Redux/store';
+import { AuthProvider } from './Context/authContext';
+import { BookProvider } from './Context/bookContext';
+import { DarckModeProvider } from './Context/DarckModeContext';
 import { LanguageProvider } from './Context/languageContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +15,13 @@ root.render(
   <Provider store={store}>
     <LanguageProvider>
       <BrowserRouter>
-        <App />
+        <AuthProvider>
+          <BookProvider>
+            <DarckModeProvider>
+              <App />
+            </DarckModeProvider>
+          </BookProvider>
+        </AuthProvider>
       </BrowserRouter>
     </LanguageProvider>
   </Provider>

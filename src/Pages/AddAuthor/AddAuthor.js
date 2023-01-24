@@ -53,6 +53,13 @@ export const AddAuthor = () => {
         console.log(error);
       });
 
+    name.current.value = ''
+    lastName.current.value = ''
+    date.current.value = ''
+    dateDeath.current.value = ''
+    country.current.value = ''
+    bio.current.value = ''
+
   }
   return (
     <RegisterBox>
@@ -73,7 +80,7 @@ export const AddAuthor = () => {
           <option value={3}>Sovet davri</option>
           <option value={4}>Mustaqillik davri</option>
         </SelectGenre>
-        <TeaxtArea placeholder={lang[til].addAuthor.bio}  ref={bio}>
+        <TeaxtArea placeholder={lang[til].addAuthor.bio} ref={bio}>
         </TeaxtArea>
         <AddImg type="file" id='add-img' onChange={imgValue} />
         <FormButton type='submit'>{lang[til].addAuthor.create}</FormButton>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HomeBox = styled.div`
@@ -64,6 +65,7 @@ overflow: hidden;
 
 export const Img = styled.img`
 margin-bottom: 12px;
+pointer-events: none;
 `
 
 export const AuthorItemTitle = styled.h4`
@@ -75,6 +77,7 @@ color: #000000;
 margin: 0;
 margin-left: 16px;
 margin-bottom: 6px;
+pointer-events: none;
 
 `
 
@@ -87,5 +90,11 @@ line-height: 24px;
 color: rgba(0, 0, 0, 0.6);
 margin: 0;
 margin-left: 16px;
+pointer-events: none;
+
+`
+
+export const LinkStyled = styled(Link)`
+text-decoration: none;
 
 `

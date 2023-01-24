@@ -53,14 +53,13 @@ padding-bottom: 100px;
 
 `
 
-export const AuthorItem = styled.div`
+export const AuthorItem = styled.li`
 display: block;
 width: 100%;
 width: 190px;
 height: 400px;
 border-radius: 15px;
 overflow: hidden;
-
 `
 
 export const Img = styled.img`
@@ -68,6 +67,8 @@ width: 190px;
 height: 283px;
 margin-bottom: 12px;
 border-radius: 15px;
+pointer-events: none;
+
 `
 
 export const AuthorItemTitle = styled.h4`
@@ -79,6 +80,7 @@ line-height: 27px;
 color: #000000;
 margin: 0;
 margin-bottom: 6px;
+pointer-events: none;
 
 `
 
@@ -90,4 +92,6 @@ font-size: 16px;
 line-height: 24px;
 color: rgba(0, 0, 0, 0.6);
 margin: 0;
+pointer-events: none;
+
 `

@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import SimpleSlider from '../../components/Carusel/Carusel';
 import { booksSuccess } from '../../components/Redux/Books/BooksActions';
 import { Search } from '../../components/Search2/Search';
+import { BookContext } from '../../Context/bookContext';
 import { LanguageContext } from '../../Context/languageContext';
 import { Container } from '../../globalStyle'
 import { lang } from '../../lang/lang';
+import { LinkStyled } from '../Home/Home.style';
 import { AuthorItem, AuthorItemText, AuthorItemTitle, AuthorList, BtnBox, CategoryBtn, HomeBox, HomeTitle, Img } from './Books.style'
 
 export const Books = () => {
@@ -36,7 +38,7 @@ export const Books = () => {
     }).catch(err => console.log(err))
   }
   const { til } = React.useContext(LanguageContext);
-
+  const { id, setId } = React.useContext(BookContext);
 
   return (
     <Container>
@@ -62,7 +64,7 @@ export const Books = () => {
             setBtn(evt.target.value)
           }}>Mustaqillik davri</CategoryBtn>
         </BtnBox>
-        <AuthorList>
+        <AuthorList onClick={(evt) => setId(evt.target.value)}>
           {
             (
               () => {
@@ -70,13 +72,16 @@ export const Books = () => {
                   return (
                     books?.books?.books.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Books/Main-Book'}><Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.title}</AuthorItemTitle>
-                          <AuthorItemText>
-                            {authorId}
-                          </AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Books/Main-Book'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.title}</AuthorItemTitle>
+                            <AuthorItemText>
+                              {authorId}
+                            </AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
+
                       )
                     })
                   )
@@ -85,13 +90,15 @@ export const Books = () => {
                   return (
                     books?.books?.books.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Books/Main-Book'}><Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.title}</AuthorItemTitle>
-                          <AuthorItemText>
-                            {authorId}
-                          </AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Books/Main-Book'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.title}</AuthorItemTitle>
+                            <AuthorItemText>
+                              {authorId}
+                            </AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )
@@ -100,13 +107,15 @@ export const Books = () => {
                   return (
                     books?.books?.books.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Books/Main-Book'}><Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.title}</AuthorItemTitle>
-                          <AuthorItemText>
-                            {authorId}
-                          </AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Books/Main-Book'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.title}</AuthorItemTitle>
+                            <AuthorItemText>
+                              {authorId}
+                            </AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )
@@ -115,13 +124,15 @@ export const Books = () => {
                   return (
                     books?.books?.books.map((item) => {
                       return (
-                        <AuthorItem key={item.id}>
-                          <Link to={'/Books/Main-Book'}><Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
-                          <AuthorItemTitle>{item.title}</AuthorItemTitle>
-                          <AuthorItemText>
-                            {authorId}
-                          </AuthorItemText>
-                        </AuthorItem>
+                        <LinkStyled to={'/Books/Main-Book'} value={item.id}>
+                          <AuthorItem key={item.id} value={item.id}>
+                            <Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" />
+                            <AuthorItemTitle>{item.title}</AuthorItemTitle>
+                            <AuthorItemText>
+                              {authorId}
+                            </AuthorItemText>
+                          </AuthorItem>
+                        </LinkStyled>
                       )
                     })
                   )

@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
+import { DarckModeContext } from "./Context/DarckModeContext";
 import { GlobalStyles } from "./globalStyle";
 import { AddAuthor } from "./Pages/AddAuthor/AddAuthor";
 import { AddBook } from "./Pages/AddBook/AddBook";
@@ -14,6 +16,17 @@ import { Profile } from "./Pages/Profile/Profile";
 
 function App() {
   const state = useSelector((state) => state)
+  const { theme } = useContext(DarckModeContext);
+
+  if(theme === 'dark') {
+    document.body.classList.add('dark')
+    document.body.classList.remove('white')
+  }
+  if(theme === 'white') {
+    document.body.classList.add('white')
+    document.body.classList.remove('dark')
+  }
+
   console.log(state);
   if (state.token.token) {
     return (

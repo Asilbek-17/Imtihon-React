@@ -66,7 +66,11 @@ export const AddBook = () => {
             .catch(error => {
                 console.log(error);
             });
-
+        title.current.value = ''
+        pages.current.value = ''
+        year.current.value = ''
+        price.current.value = ''
+        bio.current.value = ''
     }
 
     return (

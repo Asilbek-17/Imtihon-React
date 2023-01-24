@@ -16,7 +16,6 @@ export const LinksItem = styled(NavLink)`
 width: 33.9%;
 height: 80px;
 background: #F3F6F9;
-border-radius: 4px 4px 0px 0px;
 padding: 23px;
 font-family: 'Poppins';
 font-weight: 600;
@@ -116,7 +115,31 @@ border: none;
 
 export const ProfileClose = styled(Link)`
 position: absolute;
-    top: 100px;
-    right: 30px;
+top: 100px;
+right: 30px;
+
+`
+
+export const ProImg = styled.img`
+width: 175px;
+height: 175px;
+border-radius: 50%;
+
+`
+
+export const ProCamera = styled.img`
+position: absolute;
+top: 170px;
+left: 120px;
+z-index: 20;
+margin-top: -30px;
+
+`
+
+export const Label = styled.label`
+position: relative;
+width: 200px;
+height: 200px;
+
 
 `

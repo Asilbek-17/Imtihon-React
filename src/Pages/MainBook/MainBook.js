@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+import { BookContext } from '../../Context/bookContext';
 import { LanguageContext } from '../../Context/languageContext';
 import { Container } from '../../globalStyle';
 import { lang } from '../../lang/lang';
@@ -17,18 +18,20 @@ export const MainBook = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
     cssEase: "linear"
 
   };
-  const books = useSelector(state => state.books.books);
-  console.log(books[0].id);
-  const { til } = React.useContext(LanguageContext);
-  
 
-  const authors = useSelector(state => state.author.authors);
+  const { til } = React.useContext(LanguageContext);
+
+
   const state = useSelector(state => state.token);
+  const books = useSelector(state => state.books.books[0]);
+  console.log(books);
   const [authBooks, setAuthBooks] = useState([]);
+  const { id } = React.useContext(BookContext);
+  const [book, setBook] = useState([]);
   const config = {
     headers: {
       Authorization: state.token,
@@ -37,53 +40,69 @@ export const MainBook = () => {
   useEffect(() => {
     (
       () => {
-        axios.get(`http://localhost:5001/author/books/${books[0]?.id}`, config).then(data => {
+        axios.get(`http://localhost:5001/book/genreId/${books.genre_id}`, config).then(data => {
           setAuthBooks(data.data)
           return data.data
         }).catch(err => console.log(err))
       }
     )()
   }, []);
+
+  useEffect(() => {
+    (
+      () => {
+        axios.get(`http://localhost:5001/book/bookId/${id}`, config).then(data => {
+          setBook(data.data)
+          return data.data
+        }).catch(err => console.log(err))
+      }
+    )()
+  }, [id]);
   return (
     <>
       <Container>
         <RowMain>
-          <MainImg width={505} height={691} src={`http://localhost:5001/${books[0]?.image}`} alt="" />
+          <MainImg width={505} height={691} src={`http://localhost:5001/${book?.image}`} alt="" />
           <InfoBox1>
-            <MainTitle>{books[0].title}</MainTitle>
+            <MainTitle>{book.title}</MainTitle>
             <MainBookBox>
               <MainBookText>{lang[til].home.page}</MainBookText>
-              <MainBookText1>{books[0].page} {lang[til].home.page4}</MainBookText1>
+              <MainBookText1>{book.page} {lang[til].home.page4}</MainBookText1>
             </MainBookBox>
             <MainBookBox>
               <MainBookText>{lang[til].home.page1}</MainBookText>
-              <MainBookText1>{books[0].year} {lang[til].home.page5}</MainBookText1>
+              <MainBookText1>{book.year} {lang[til].home.page5}</MainBookText1>
             </MainBookBox>
             <MainBookBox>
               <MainBookText>{lang[til].home.page2}</MainBookText>
-              <MainBookText1>${books[0].price}</MainBookText1>
+              <MainBookText1>${book.price}</MainBookText1>
             </MainBookBox>
             <MoreText>{lang[til].home.page3} ↓</MoreText>
             <MainBookText2>
-            {books[0].description}
+              {book.description}
             </MainBookText2>
           </InfoBox1>
         </RowMain>
         <RowBooks>
           <MainYearTitle>
-          {lang[til].home.mainTitle}
+            {lang[til].home.mainTitle}
           </MainYearTitle>
           <AuthorBooksText to={'/Books'}>
-          {lang[til].home.mainLink}
+            {lang[til].home.mainLink}
           </AuthorBooksText>
         </RowBooks>
         <RowBooks>
           <Slider {...settings}>
-            <AuthorItem>
-              <Link to={'/Books'}><Img width={190} height={283} src={`http://localhost:5001/${authBooks[0]?.image}`} alt="" /></Link>
-              <AuthorItemTitle>{authBooks[0]?.title}</AuthorItemTitle>
-              <AuthorItemText>{authors[0]?.first_name + ' ' + authors[0]?.last_name}</AuthorItemText>
-            </AuthorItem>
+            {
+              authBooks.map(item => {
+                return (
+                  <AuthorItem>
+                    <Link to={'/Books'}><Img width={190} height={283} src={`http://localhost:5001/${item.image}`} alt="" /></Link>
+                    <AuthorItemTitle>{item.title}</AuthorItemTitle>
+                  </AuthorItem>
+                )
+              })
+            }
           </Slider>
         </RowBooks>
       </Container>

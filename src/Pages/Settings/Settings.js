@@ -6,18 +6,29 @@ import Switch from '@mui/material/Switch';
 import CloseIcon from '../../assets/images/icons8-удалить.svg'
 import { LanguageContext } from '../../Context/languageContext';
 import { lang } from '../../lang/lang';
-
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
+import { DarckModeContext } from '../../Context/DarckModeContext';
 
 export const Settings = () => {
   const language = React.useRef();
+  const mode = React.useRef();
 
   const { til, setTil } = React.useContext(LanguageContext);
 
+  const [checked, setChecked] = React.useState(true);
+  const { theme, setTheme } = React.useContext(DarckModeContext);
 
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   const onSubmit = (evt) => {
     evt.preventDefault();
     setTil(language.current.value)
+    if(checked) {
+      setTheme('dark')
+    } else {
+      setTheme('white')
+    }
+    console.log(checked);
   }
   return (
     <ProfileBox>
@@ -41,7 +52,11 @@ export const Settings = () => {
         </label>
         <label>
           <ProfileText>{lang[til].setting.label2}</ProfileText>
-          <Switch {...label} />
+          <Switch
+            checked={checked}
+            onChange={handleChange}
+            inputProps={{ 'aria-label': 'controlled' }}
+          />
         </label>
         <SecurityBtn type='submit'>{lang[til].setting.button}</SecurityBtn>
       </SettingBox>

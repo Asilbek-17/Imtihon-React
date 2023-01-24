@@ -9,9 +9,30 @@ import { Security } from '../../Pages/Security/Security';
 import { Settings } from '../../Pages/Settings/Settings';
 import { LanguageContext } from '../../Context/languageContext';
 import { lang } from '../../lang/lang';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { useState } from 'react';
+import { getUser } from '../Redux/User/UserActions';
 
 export const Header = () => {
+    const state = useSelector((state) => state.token)
     const { til } = React.useContext(LanguageContext);
+    const dispatch = useDispatch();
+    const config2 = {
+        headers: {
+            Authorization: state.token,
+        }
+    }
+    const user = useSelector((state) => state.user)
+
+    const GetUserFN = () => {
+        axios.get(`http://localhost:5001/user/me`, config2).then(data => {
+            dispatch(getUser(data.data))
+        }).catch(err => console.log(err))
+    }
+    useState(() => {
+        GetUserFN()
+    }, [til])
 
     return (
         <header>
@@ -28,7 +49,7 @@ export const Header = () => {
                             id="panel1a-header"
                         >
                             <>
-                                <Avatar alt='Asilbek Bozorboyev' src='asf' />
+                                <Avatar alt={user.user.first_name + " " + user.user.last_name} src={`http://localhost:5001/${user.user.image}`} />
                             </>
                         </AccordionSummary>
                         <AccordionDetails1>

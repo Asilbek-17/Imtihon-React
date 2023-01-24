@@ -94,3 +94,185 @@ body{
   background-repeat: no-repeat;
   background-size: 1177px;
 }
+
+.dark {
+  background-color: #191919;
+}
+
+.dark .MuiPaper-root {
+  background-color: #191919;
+}
+
+.dark .gkQdbW {
+  background-color: #222;
+}
+
+.dark .bIcZWe {
+  color: #fff ;
+}
+
+.dark .czNhvP{
+  background-color: #191919;
+  box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.25);
+}
+
+.dark .iXDwfG{
+  background: #404040;
+}
+
+.dark .iXDwfG::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .cgwcUh {
+  color: #3C2710;
+}
+
+.dark .obJzP {
+  color: #fff;
+}
+
+.dark .bhTlJR {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .jRcPxw {
+  background-color: #1E1E1E;
+}
+
+.dark .hTHsYH {
+  color: #C9AC8C;
+}
+
+.dark .reUTM {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .kkwrbe{
+  background-color: #191919;
+  box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.25);
+}
+
+.dark .eUvkBY {
+  background-color: #404040;
+}
+
+.dark .eUvkBY::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .iukneb {
+  color: #3C2710;
+}
+
+.dark .PTJLq {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .iEifJc {
+  color: #C9AC8C;
+}
+
+.dark .lfKSVI {
+  color: rgba(255, 255, 255, 0.6);
+
+}
+
+.dark .dnmIDx {
+  background: #191919;
+box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.25);
+}
+
+.dark .koOHjL {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .kVwrfZ {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .kXZVAa {
+  color: #fff;
+}
+
+.dark .boncqX {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .knWtnn {
+  color: #FFFFFF;
+}
+
+.dark .Rwwyv {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .hyxjUW {
+  background-color: #191919;
+}
+
+.dark .faKHlS{
+  background: #2D2D2D;
+  color: #FFFFFF;
+}
+
+.dark .iBuTDI {
+  color: #DEDEDE;
+}
+
+.dark .Uaiih {
+  color: #F3F6F9;
+}
+
+.dark .eZBPCr {
+  background-color: #F1F6FF;
+  color: #0D0D0D;
+}
+
+.dark .css-u109ib {
+  color: #FFFFFF;
+}
+
+.dark .css-pn96st {
+  background-color: #F1F6FF;
+  color: #0D0D0D;
+}
+
+.dark .fNpLib {
+  background-color: #191919;
+}
+
+.dark .lfQeAv {
+  color: #fff;
+}
+
+.dark .cjIfPG {
+  background-color: #191919;
+  border: 1px solid #B4B4BB;
+  color: #fff;
+}
+
+.dark .cjIfPG::placeholder {
+  color: #fff;
+}
+
+.dark .btVyqw {
+  background-color: #191919;
+  border: 1px solid #B4B4BB;
+  color: #fff;
+}
+
+.dark .hVBJId {
+  background-color: #191919;
+  border: 1px solid #B4B4BB;
+  color: #fff;
+}
+
+.dark .hVBJId::placeholder {
+  color: #fff;
+}
+
+.dark .iDjbLl {
+  background-color: #fff;
+  color: #000;
+}

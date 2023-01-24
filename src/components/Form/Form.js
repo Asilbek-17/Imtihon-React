@@ -32,7 +32,7 @@ export const Form1 = () => {
     const { til } = React.useContext(LanguageContext);
 
     return (
-        <RightBox onSubmit={(evt) => {
+        <RightBox className='search-form' onSubmit={(evt) => {
             evt.preventDefault();
             hendelSubmit()
         }}>
