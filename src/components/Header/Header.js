@@ -59,6 +59,7 @@ export const Header = () => {
                             <AccordionLink onClick={() => {
                                 window.location.reload()
                                 localStorage.removeItem('token')
+                                localStorage.removeItem('reToken')
                             }}>{lang[til].home.link3}</AccordionLink>
                         </AccordionDetails1>
                     </Accordion1>

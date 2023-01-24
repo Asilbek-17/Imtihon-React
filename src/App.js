@@ -18,17 +18,17 @@ function App() {
   const state = useSelector((state) => state)
   const { theme } = useContext(DarckModeContext);
 
-  if(theme === 'dark') {
+  if (theme === 'dark') {
     document.body.classList.add('dark')
     document.body.classList.remove('white')
   }
-  if(theme === 'white') {
+  if (theme === 'white') {
     document.body.classList.add('white')
     document.body.classList.remove('dark')
   }
 
   console.log(state);
-  if (state.token.token) {
+  if (localStorage.getItem('token')) {
     return (
       <>
         <Header />
@@ -44,7 +44,18 @@ function App() {
         <GlobalStyles />
       </>
     );
-  } else {
+  } else if (localStorage.getItem('reToken')) {
+    return (
+      <>
+        <Login />
+        <Routes>
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+      </>
+    )
+  }
+  else {
     return (
       <>
         <Login />
