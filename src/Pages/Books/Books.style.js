@@ -42,11 +42,13 @@ cursor: pointer;
 `
 
 export const AuthorList = styled.ul`
+width: 1300px;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
 gap: 20px 24px;
-margin: 0;
+margin: 0 auto;
 list-style: none;
 padding: 0;
 padding-bottom: 100px;

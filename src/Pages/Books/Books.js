@@ -41,7 +41,7 @@ export const Books = () => {
   const { id, setId } = React.useContext(BookContext);
 
   return (
-    <Container>
+    <>
       <SimpleSlider />
       <Search />
       <HomeBox>
@@ -144,6 +144,6 @@ export const Books = () => {
 
         </AuthorList>
       </HomeBox>
-    </Container>
+    </>
   )
 }
