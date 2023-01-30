@@ -27,7 +27,7 @@ export const Home = () => {
   }
   const { id, setId } = React.useContext(AuthContext);
   return (
-    <Container>
+    <>
       <SimpleSlider />
       <Search />
       <HomeBox>
@@ -110,7 +110,7 @@ export const Home = () => {
 
         </AuthorList>
       </HomeBox>
-    </Container>
+    </>
   )
 }
 // https://jsonplaceholder.typicode.com/users
